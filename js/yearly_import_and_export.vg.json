@@ -1,0 +1,29 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A line chart showing Malaysia's yearly imports and exports from 2019 to 2025 in Ringgit Malaysia (RM).",
+    "width": 800,
+    "height": 400,
+    "data": {
+    "url": "data/yearly-import-and-export-(2019-2025).csv"
+    },
+    "transform": [
+        {
+            "fold": ["Sum_of_exports(RM Billion)", "Sum_of_imports(RM Billion)"],
+            "as": ["Trade Type", "Amount"]
+        },
+        {
+            "calculate": "datum['Trade Type'] == 'Sum_of_exports(RM Billion)' ? 'Exports' : 'Imports'",
+            "as": "Trade Category"
+        }
+    ],
+    "mark": {"type": "line", "point": true},
+    "encoding": {
+        "x": {"field": "Year", "type": "ordinal", "title": "Year"},
+        "y": {"field": "Amount", "type": "quantitative", "title": "Amount (RM Billion)"},
+        "color": {"field": "Trade Category", "type": "nominal", "title": "Trade Type"},
+        "tooltip": [
+            {"field": "Year", "type": "ordinal"},
+            {"field": "Amount", "type": "quantitative"}
+        ]
+    }
+}

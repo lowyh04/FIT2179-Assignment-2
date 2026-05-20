@@ -3,9 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Malaysia International Trade Visualisation</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-    
+
+    <div class="container">
+        <header class="main-section">
+            <h1 class="main-title">
+                Malaysia International Trade Visualisation
+            </h1>
+        </header>
+
+        <section class="visual-section">
+            <h2 class="section-title">
+                Overall Trade Trend
+            </h2>
+
+            <div id="line-chart"></div>
+        </section>
+
+
+    </div>
+
+    <script type="text/javascript">
+        var line_chart = "js/yearly_import_and_export.vg.json";
+
+
+        vegaEmbed('#line-chart', line_chart, {actions: false}).then(function(result) {
+        }).catch(console.error);
+
+
+  </script>
 </body>
 </html>
