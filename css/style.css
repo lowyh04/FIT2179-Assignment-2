@@ -37,3 +37,12 @@ body {
     margin-bottom: 30px;
     color: #111827;
 }
+
+.chart-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.vega-embed {
+    width: 100%;
+}

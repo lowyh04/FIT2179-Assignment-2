@@ -34,16 +34,30 @@
             <div id="line-chart"></div>
         </section>
 
+        <section class="visual-section">
+
+            <h2 class="section-title">
+                Ranking of Malaysia's Import Partners (2020-2025)
+            </h2>
+
+            <div class="chart-container">
+                <div id="bump-chart"></div>
+            </div>
+
+        </section>
 
     </div>
 
     <script type="text/javascript">
         var line_chart = "js/yearly_import_and_export.vg.json";
-
+        var bump_chart = "js/import_partner_bump_chart.vg.json";
+        // var specVis2 = "./line-chart-responsive.json";
 
         vegaEmbed('#line-chart', line_chart, {actions: false}).then(function(result) {
         }).catch(console.error);
 
+        vegaEmbed('#bump-chart', bump_chart,{actions: false}).then(function(result){
+        }).catch(console.error);
 
   </script>
 </body>

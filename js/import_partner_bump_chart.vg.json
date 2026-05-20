@@ -1,0 +1,73 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bump chart showing ranking changes of Malaysia's import partners from 2020 to 2025.",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "data/Malaysia-2020-2025-Top-Import-Partner.csv"
+  },
+  "transform": [
+    {
+      "fold": ["2020", "2021", "2022", "2023", "2024", "2025"],
+      "as": ["Year", "Import Value"]
+    },
+    {
+      "window": [{"op": "rank", "as": "Rank"}],
+      "sort": [{"field": "Import Value", "order": "descending"}],
+      "groupby": ["Year"]
+    },
+    {
+      "calculate": "'#' + datum.Rank",
+      "as": "Rank Label"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "line", "strokeWidth": 3},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal", "axis": null},
+        "y": {"field": "Rank", "type": "quantitative", "scale": {"domain": [7,0]}, "axis": null},
+        "color": {
+          "field": "Partner",
+          "type": "nominal",
+          "title": "Import Partner",
+          "scale": {
+            "domain": ["China", "Singapore", "United States of America", "Chinese Taipei", "European Union","Japan"],
+            "range": ["#6baed6", "#f768a1", "#8c564b", "#1a2b3d", "#228b22", "#9467bd"]
+          }
+        },
+        "detail": {"field": "Partner"},
+        "tooltip": [
+          {"field": "Partner", "type": "nominal"},
+          {"field": "Year", "type": "ordinal"},
+          {"field": "Rank", "type": "quantitative"},
+          {"field": "Import Value", "type": "quantitative","format": ","}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 800, "opacity": 1},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "Rank", "type": "quantitative"},
+        "color": {"field": "Partner", "type": "nominal"}
+      }
+    },
+    {
+      "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "dy": 35, "color": "#ACACAC"},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"value": 540},
+        "text": {"field": "Year"}
+      }
+    },
+    {
+      "mark": {"type": "text", "fontSize": 12, "fontWeight": "bold", "color": "white"},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "Rank", "type": "quantitative"},
+        "text": {"field": "Rank Label"}
+      }
+    }
+  ]
+}
