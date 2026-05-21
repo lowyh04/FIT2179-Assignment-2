@@ -20,20 +20,58 @@
 <body>
 
     <div class="container">
-        <header class="main-section card-section">
+        <header class="main-section">
             <h1 class="main-title">
                 Malaysia International Trade Visualisation
             </h1>
         </header>
 
+        <section class="external-section">
+            <h2 class="external-title">
+                Overview of Malaysia International Trade
+            </h2>
+
+            <hr class="section-divider">
+        </section>
+
         <section class="line-chart-section card-section">
             <h2 class="line-chart-title chart-title">
-                Overall Trade Trend
+                Yearly Imports and Exports Value
             </h2>
+
+            <p class="section-description">
+                Malaysia’s trade steadily increased across recent years.<br>
+                Exports and imports grew despite global disruptions.<br>
+                The chart highlights long-term trade performance trends.
+            </p>
 
             <div class="line-chart-container chart-container">
                 <div id="line-chart"></div>
             </div>
+        </section>
+
+        <section class="bar-line-section card-section">
+            <h2 class="bar-line-title chart-title">
+                Malaysia Trade Balance and Trade-To-GDP Ratio (2016 - 2023)
+            </h2>
+
+            <p class="chart-description">
+                Malaysia maintained positive trade balances across most years.<br>
+                Trade activity contributed significantly to national economic performance.<br>
+                Trade-to-GDP ratios reflected strong international market participation.
+            </p>
+
+            <div class="bar-line-container chart-container">
+                <div id="bar_line_chart"></div>
+            </div>
+        </section>
+
+        <section class="external-section">
+            <h2 class="external-title">
+                Malaysia Import Analysis
+            </h2>
+
+            <hr class="section-divider">
         </section>
 
         <div class="two-chart-row">
@@ -41,6 +79,12 @@
                 <h2 class="bump-chart-title chart-title">
                     Ranking of Malaysia's Import Partners (2020-2024)
                 </h2>
+
+                <p class="chart-description">
+                    China remained Malaysia’s leading import trading partner.<br>
+                    Regional Asian economies dominated Malaysia’s import market rankings.<br>
+                    Import partner rankings changed slightly across recent years.
+                </p>
 
                 <div class="bump-chart-container chart-container">
                     <div id="bump-chart"></div>
@@ -51,6 +95,12 @@
                 <h2 class="multi-line-title chart-title">
                     Electrical and Electronic Imports (2020-2024)
                 </h2>
+
+                <p class="chart-description">
+                    Electronic imports increased alongside growing technology industry demand.
+                    Semiconductor and electrical components formed major import categories.
+                    Import values fluctuated according to global supply conditions.
+                </p>
 
                 <div class="multi-line-container chart-container">
                     <div id="multi_line_chart"></div>
@@ -64,18 +114,14 @@
                 Malaysia Value of Import (2015 - 2019)
             </h2>
 
+            <p class="chart-description">
+                Manufactured goods contributed heavily to total import values.<br>
+                Different sectors displayed varying import growth patterns annually.<br>
+                Import composition reflected Malaysia’s industrial development needs.
+            </p>
+
             <div class="stacked-bar-container">
                 <div id="stacked-bar"></div>
-            </div>
-        </section>
-
-        <section class="bar-line-section card-section">
-            <h2 class="bar-line-title chart-title">
-                Malaysia Trade Balance and Trade-To-GDP Ratio (2016 - 2023)
-            </h2>
-
-            <div class="bar-line-container chart-container">
-                <div id="bar_line_chart"></div>
             </div>
         </section>
 
@@ -83,6 +129,12 @@
             <h2 class="choropleth-map-title chart-title">
                 Countries Imports of Goods (% of GDP) from 2020-2025
             </h2>
+
+            <p class="chart-description">
+                Countries displayed different import dependence relative to GDP.<br>
+                Smaller economies showed higher import-to-GDP percentages overall.<br>
+                Global trade intensity varied significantly across different regions.
+            </p>
 
             <div class="choropleth-map-container chart-container">
                 <div id="choropleth_map"></div>
