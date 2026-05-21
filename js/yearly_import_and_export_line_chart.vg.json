@@ -9,27 +9,56 @@
     "transform": [
         {
             "fold": ["Sum_of_exports(RM Billion)", "Sum_of_imports(RM Billion)"],
-            "as": ["Trade Type", "Amount (RM Billion)"]
+            "as": ["Trade Type", "Value (RM Billion)"]
         },
         {
             "calculate": "datum['Trade Type'] == 'Sum_of_exports(RM Billion)' ? 'Exports' : 'Imports'",
             "as": "Trade Category"
         }
     ],
-    "mark": {
-        "type": "line",
-        "point": {
-            "filled": true,
-            "size": 80
-        }
-    },
-    "encoding": {
-        "x": {"field": "Year", "type": "ordinal", "title": "Year", "axis": {"labelAngle": 0, "labelPadding": 10}},
-        "y": {"field": "Amount (RM Billion)", "type": "quantitative", "title": "Amount (RM Billion)"},
-        "color": {"field": "Trade Category", "type": "nominal", "title": "Trade Type"},
-        "tooltip": [
-            {"field": "Year", "type": "ordinal"},
-            {"field": "Amount (RM Billion)", "type": "quantitative"}
-        ]
-    }
+    "layer": [
+        {
+            "mark": {
+                "type": "line",
+                "point": {
+                "filled": true,
+                "size": 80
+                },
+                "strokeWidth": 3
+            },
+            "encoding": {
+                "x": {
+                "field": "Year",
+                "type": "ordinal",
+                "title": "Year",
+                "axis": {"labelAngle": 0,"labelPadding": 10}
+                },
+                "y": {"field": "Value (RM Billion)", "type": "quantitative", "title": "Value (RM Billion)"},
+                "color": {"field": "Trade Category", "type": "nominal", "title": "Trade Type"},
+                "tooltip": [
+                    {"field": "Year", "type": "ordinal"},
+                    {"field": "Trade Category", "type": "nominal"},
+                    {"field": "Value (RM Billion)", "type": "quantitative","format": ",.2f"}
+                    ]
+                }
+            },
+            {
+            "transform": [{"filter": "datum.Year == '2023' && datum['Trade Category'] == 'Imports'"}],
+            "mark": {"type": "rule", "strokeWidth": 1.5, "stroke": "#444"},
+            "encoding": {
+                "x": {"field": "Year", "type": "ordinal"},
+                "y": {"field": "Value (RM Billion)", "type": "quantitative"},
+                "y2": {"value": 230}
+                }
+            },
+            {
+                "transform": [{"filter": "datum.Year == '2023' && datum['Trade Category'] == 'Imports'"}],
+                "mark": {"type": "text", "align": "left", "dx": -120, "dy": 120, "fontSize": 13, "fontWeight": "bold", "color": "#444", "lineBreak": "\n"},
+                "encoding": {
+                    "x": {"field": "Year", "type": "ordinal"},
+                    "y": {"field": "Value (RM Billion)", "type": "quantitative"},
+                    "text": {"value": "Imports and exports value declined in 2023\ndue to global conflicts and economic uncertainty"}
+                }
+            }
+    ]
 }
