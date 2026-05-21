@@ -67,6 +67,15 @@
             </div>
         </section>
 
+        <section class="choropleth-map-section">
+            <h2 class="choropleth-map-title">
+                Countries Imports of Goods (% of GDP) from 2020-2025
+            </h2>
+
+            <div class="choropleth-map-container">
+                <div id="choropleth_map"></div>
+            </div>
+        </section>
     </div>
 
     <script type="text/javascript">
@@ -74,6 +83,7 @@
         var bump_chart = "js/import_partner_bump_chart.vg.json";
         var stacked_bar = "js/value_of_import_stacked_bar.vg.json";
         var bar_line_chart = "js/trade_balance_trade_to_gdp_ratio.vg.json";
+        var choropleth_map = "js/countries_imports_of_goods_GDP_choropleth_map.vg.json"
 
         vegaEmbed('#line-chart', line_chart, {actions: false}).then(function(result) {
         }).catch(console.error);
@@ -85,6 +95,9 @@
         }).catch(console.error);
 
         vegaEmbed('#bar_line_chart', bar_line_chart, {actions: false}).then(function(result){
+        }).catch(console.error)
+
+        vegaEmbed('#choropleth_map', choropleth_map, {actions: false}).then(function(result){
         }).catch(console.error)
 
   </script>

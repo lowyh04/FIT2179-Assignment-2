@@ -1,0 +1,125 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 900,
+  "height": 500,
+
+  "projection": {
+    "type": "equalEarth"
+  },
+
+  "params": [
+    {
+      "name": "selectedYear",
+      "value": 2024,
+      "bind": {
+        "input": "range",
+        "min": 2020,
+        "max": 2024,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    }
+  ],
+
+  "layer": [
+
+    {
+      "data": {
+        "sphere": true
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#dceefc"
+      }
+    },
+
+    {
+      "data": {
+        "graticule": true
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#c0c0c0",
+        "strokeWidth": 0.5
+      }
+    },
+
+    {
+      "data": {
+        "url": "https://vega.github.io/vega-datasets/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+
+      "transform": [
+        {
+          "lookup": "id",
+          "from": {
+            "data": {
+              "url": "data/Countries-Imports-of-goods-GDP-(2020-2024).csv"
+            },
+            "key": "ISO3166-1-numeric",
+            "fields": [
+              "Country Name",
+              "2020",
+              "2021",
+              "2022",
+              "2023",
+              "2024"
+            ]
+          }
+        },
+        {
+          "calculate": "datum[toString(selectedYear)]",
+          "as": "SelectedValue"
+        },
+        {
+          "calculate": "isValid(datum.SelectedValue) && datum.SelectedValue != 0 ? format(datum.SelectedValue, '.2f') : 'No data'",
+          "as": "GDP_Label"
+        }
+      ],
+
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
+
+      "encoding": {
+
+        "color": {
+          "condition": {
+            "test": "isValid(datum.SelectedValue) && datum.SelectedValue != 0",
+            "field": "SelectedValue",
+            "type": "quantitative",
+            "title": "Imports (% GDP)",
+            "scale": {
+              "scheme": "goldorange"
+            }
+          },
+          "value": "#d3d3d3"
+        },
+
+        "tooltip": [
+          {
+            "field": "Country Name",
+            "type": "nominal",
+            "title": "Country"
+          },
+          {
+            "expr": "selectedYear",
+            "title": "Year"
+          },
+          {
+            "field": "GDP_Label",
+            "type": "nominal",
+            "title": "Imports (% GDP)"
+          }
+        ]
+      }
+    }
+  ]
+}
