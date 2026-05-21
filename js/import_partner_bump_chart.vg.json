@@ -50,8 +50,29 @@
       "encoding": {
         "x": {"field": "Year", "type": "ordinal"},
         "y": {"field": "Rank", "type": "quantitative"},
-        "color": {"field": "Partner", "type": "nominal"}
-      }
+        "color": {"field": "Partner", "type": "nominal"},
+        "tooltip": [
+                {
+              "field": "Partner",
+              "type": "nominal",
+              "title": "Import Partner"
+            },
+            {
+              "field": "Year",
+              "type": "ordinal"
+            },
+            {
+              "field": "Rank",
+              "type": "quantitative"
+            },
+            {
+              "field": "Import Value",
+              "type": "quantitative",
+              "title": "Import Value (USD Billion)",
+              "format": ","
+            }
+          ]
+        }
     },
     {
       "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "dy": 35, "color": "#ACACAC"},
