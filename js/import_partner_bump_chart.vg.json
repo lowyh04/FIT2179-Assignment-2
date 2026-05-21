@@ -1,14 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Bump chart showing ranking changes of Malaysia's import partners from 2020 to 2025.",
-  "width": 800,
+  "width": 400,
   "height": 600,
   "data": {
     "url": "data/Malaysia-2020-2025-Top-Import-Partner.csv"
   },
   "transform": [
     {
-      "fold": ["2020", "2021", "2022", "2023", "2024", "2025"],
+      "fold": ["2020", "2021", "2022", "2023", "2024"],
       "as": ["Year", "Import Value"]
     },
     {

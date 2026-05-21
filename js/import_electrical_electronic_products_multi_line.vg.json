@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Imports of electrical and electronic products by country (2020-2024).",
+  "width": 400,
+  "height": 600,
+  "data": {
+    "url": "data/Malaysia-Import-Eletrical-and-Electronic-Products-(2020-2024).csv"
+  },
+  "transform": [
+    {
+      "fold": ["2020", "2021", "2022", "2023", "2024"],
+      "as": ["Year", "Import Value"]
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": {
+      "filled": true,
+      "size": 90
+    },
+    "strokeWidth": 3
+  },
+  "encoding": {
+    "x": {"field": "Year", "type": "ordinal", "title": "Year", "axis": {"labelAngle": 0, "labelPadding": 10}},
+    "y": {"field": "Import Value", "type": "quantitative", "title": "Import Value (RM Billion)"},
+    "color": {
+      "field": "Country",
+      "type": "nominal",
+      "legend": null,
+      "title": "Country",
+      "scale": {
+        "domain": ["China", "Singapore", "United States of America", "Chinese Taiper", "European Union", "Japan"],
+        "range": ["#6baed6", "#f768a1", "#8c564b", "#1a2b3d", "#228b22", "#C4A482"]
+      }
+    },
+
+    "tooltip": [
+      {"field": "Country", "type": "nominal"},
+      {"field": "Year", "type": "ordinal"},
+      { "field": "Import Value", "type": "quantitative", "title": "Import Value (RM Billion)", "format": ".2f"}
+    ]
+  }
+}
