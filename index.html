@@ -26,24 +26,35 @@
             </h1>
         </header>
 
-        <section class="visual-section">
-            <h2 class="section-title">
+        <section class="line-chart-section">
+            <h2 class="line-chart-title">
                 Overall Trade Trend
             </h2>
 
-            <div id="line-chart"></div>
+            <div class="line-chart-container">
+                <div id="line-chart"></div>
+            </div>
         </section>
 
-        <section class="visual-section">
-
-            <h2 class="section-title">
+        <section class="bump-chart-section">
+            <h2 class="bump-chart-title">
                 Ranking of Malaysia's Import Partners (2020-2025)
             </h2>
 
-            <div class="chart-container">
+            <div class="bump-chart-container">
                 <div id="bump-chart"></div>
             </div>
+        </section>
 
+
+        <section class="stacked-bar-section">
+            <h2 class="stacked-bar-title">
+                Malaysia Value of Import (2015 - 2019)
+            </h2>
+
+            <div class="stacked-bar-container">
+                <div id="stacked-bar"></div>
+            </div>
         </section>
 
     </div>
@@ -51,12 +62,15 @@
     <script type="text/javascript">
         var line_chart = "js/yearly_import_and_export.vg.json";
         var bump_chart = "js/import_partner_bump_chart.vg.json";
-        // var specVis2 = "./line-chart-responsive.json";
+        var stacked_bar = "js/value_of_import_stacked_bar.vg.json";
 
         vegaEmbed('#line-chart', line_chart, {actions: false}).then(function(result) {
         }).catch(console.error);
 
-        vegaEmbed('#bump-chart', bump_chart,{actions: false}).then(function(result){
+        vegaEmbed('#bump-chart', bump_chart, {actions: false}).then(function(result){
+        }).catch(console.error);
+
+        vegaEmbed('#stacked-bar', stacked_bar, {actions: false}).then(function(result){
         }).catch(console.error);
 
   </script>

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Stacked bar chart of imports by sector over time.",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "data/Malaysia-value-of-Import-2015-2019.csv"
+  },
+  "mark": {
+    "type": "bar",
+    "size": 100
+  },
+  "encoding": {
+    "x": {
+      "field": "YEAR",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {
+        "labelAngle": 0,
+        "labelPadding": 10
+      }
+    },
+    "y": {"field": "IMPORT (RM Million)", "type": "quantitative", "aggregate": "sum","title": "Import Value (RM Million)"},
+    "color": {
+      "field": "SECTOR",
+      "type": "nominal",
+      "title": "Sector",
+      "scale": { "range": ["#8FBC8F", "#9370DB", "#FFA500", "#87CEEB", "#9D9D9D"]}
+    },
+    "tooltip": [
+      {"field": "YEAR", "type": "ordinal"},
+      {"field": "SECTOR", "type": "nominal"},
+      {"field": "IMPORT (RM Million)","type": "quantitative","aggregate": "sum","format": ",.2f"}
+    ]
+  }
+}
