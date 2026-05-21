@@ -33,7 +33,7 @@
           "title": "Import Partner",
           "scale": {
             "domain": ["China", "Singapore", "United States of America", "Chinese Taipei", "European Union","Japan"],
-            "range": ["#6baed6", "#f768a1", "#8c564b", "#1a2b3d", "#228b22", "#9467bd"]
+            "range": ["#6baed6", "#f768a1", "#8c564b", "#1a2b3d", "#228b22", "#C4A482"]
           }
         },
         "detail": {"field": "Partner"},
