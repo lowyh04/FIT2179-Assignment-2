@@ -16,7 +16,13 @@
             "as": "Trade Category"
         }
     ],
-    "mark": {"type": "line", "point": true},
+    "mark": {
+        "type": "line",
+        "point": {
+            "filled": true,
+            "size": 80
+        }
+    },
     "encoding": {
         "x": {"field": "Year", "type": "ordinal", "title": "Year"},
         "y": {"field": "Amount", "type": "quantitative", "title": "Amount (RM Billion)"},
