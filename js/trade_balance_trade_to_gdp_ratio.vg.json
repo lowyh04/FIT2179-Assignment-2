@@ -15,7 +15,15 @@
         "opacity": 0.75
     },
       "encoding": {
-        "x": {"field": "Year", "type": "ordinal", "title": "Year"},
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": {
+            "labelAngle": 0,
+            "labelPadding": 10
+          }
+        },
         "y": { "field": "Trade Balance(USD Billion)", "type": "quantitative", "title": "Trade Balance (USD Billion)"},
         "color": {
           "field": "Series",
