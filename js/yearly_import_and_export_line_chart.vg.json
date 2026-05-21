@@ -9,7 +9,7 @@
     "transform": [
         {
             "fold": ["Sum_of_exports(RM Billion)", "Sum_of_imports(RM Billion)"],
-            "as": ["Trade Type", "Amount"]
+            "as": ["Trade Type", "Amount (RM Billion)"]
         },
         {
             "calculate": "datum['Trade Type'] == 'Sum_of_exports(RM Billion)' ? 'Exports' : 'Imports'",
@@ -24,12 +24,12 @@
         }
     },
     "encoding": {
-        "x": {"field": "Year", "type": "ordinal", "title": "Year"},
-        "y": {"field": "Amount", "type": "quantitative", "title": "Amount (RM Billion)"},
+        "x": {"field": "Year", "type": "ordinal", "title": "Year", "axis": {"labelAngle": 0, "labelPadding": 10}},
+        "y": {"field": "Amount (RM Billion)", "type": "quantitative", "title": "Amount (RM Billion)"},
         "color": {"field": "Trade Category", "type": "nominal", "title": "Trade Type"},
         "tooltip": [
             {"field": "Year", "type": "ordinal"},
-            {"field": "Amount", "type": "quantitative"}
+            {"field": "Amount (RM Billion)", "type": "quantitative"}
         ]
     }
 }
