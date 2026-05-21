@@ -27,18 +27,18 @@ body {
     margin-bottom: 10px;
 }
 
-.line-chart-section, .bump-chart-section, .stacked-bar-section {
+.line-chart-section, .bump-chart-section, .stacked-bar-section, .bar-line-section {
     margin-bottom: 50px;
 }
 
-.line-chart-title, .bump-chart-title, .stacked-bar-title {
+.line-chart-title, .bump-chart-title, .stacked-bar-title, .bar-line-title {
     font-family: 'Playfair Display', serif;
     font-size: 32px;
     margin-bottom: 30px;
     color: #111827;
 }
 
-.line-chart-container, .bump-chart-container, .stacked-bar-container{
+.line-chart-container, .bump-chart-container, .stacked-bar-container, .bar-line-container{
     width: 100%;
     overflow-x: auto;
 }
