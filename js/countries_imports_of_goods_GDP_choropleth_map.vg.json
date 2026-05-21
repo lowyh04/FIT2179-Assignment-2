@@ -1,13 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
+  "description": "A choropleth map showing the Malaysia countries import of good (% of GDP) from year 2020 to 2024",
   "width": 900,
   "height": 500,
-
-  "projection": {
-    "type": "equalEarth"
-  },
-
+  "projection": {"type": "equalEarth"},
   "params": [
     {
       "name": "selectedYear",
@@ -21,30 +17,15 @@
       }
     }
   ],
-
   "layer": [
-
     {
-      "data": {
-        "sphere": true
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "#dceefc"
-      }
+      "data": {"sphere": true},
+      "mark": {"type": "geoshape", "fill": "#dceefc"}
     },
-
     {
-      "data": {
-        "graticule": true
-      },
-      "mark": {
-        "type": "geoshape",
-        "stroke": "#c0c0c0",
-        "strokeWidth": 0.5
-      }
+      "data": {"graticule": true},
+      "mark": {"type": "geoshape", "stroke": "#c0c0c0", "strokeWidth": 0.5}
     },
-
     {
       "data": {
         "url": "https://vega.github.io/vega-datasets/data/world-110m.json",
@@ -53,7 +34,6 @@
           "feature": "countries"
         }
       },
-
       "transform": [
         {
           "lookup": "id",
@@ -62,14 +42,7 @@
               "url": "data/Countries-Imports-of-goods-GDP-(2020-2024).csv"
             },
             "key": "ISO3166-1-numeric",
-            "fields": [
-              "Country Name",
-              "2020",
-              "2021",
-              "2022",
-              "2023",
-              "2024"
-            ]
+            "fields": ["Country Name", "2020", "2021", "2022", "2023","2024"]
           }
         },
         {
@@ -82,14 +55,9 @@
         }
       ],
 
-      "mark": {
-        "type": "geoshape",
-        "stroke": "white",
-        "strokeWidth": 0.5
-      },
+      "mark": {"type": "geoshape", "stroke": "white","strokeWidth": 0.5},
 
       "encoding": {
-
         "color": {
           "condition": {
             "test": "isValid(datum.SelectedValue) && datum.SelectedValue != 0",
@@ -102,22 +70,10 @@
           },
           "value": "#d3d3d3"
         },
-
         "tooltip": [
-          {
-            "field": "Country Name",
-            "type": "nominal",
-            "title": "Country"
-          },
-          {
-            "expr": "selectedYear",
-            "title": "Year"
-          },
-          {
-            "field": "GDP_Label",
-            "type": "nominal",
-            "title": "Imports (% GDP)"
-          }
+          {"field": "Country Name", "type": "nominal", "title": "Country"},
+          {"expr": "selectedYear", "title": "Year"},
+          {"field": "GDP_Label", "type": "nominal", "title": "Imports (% GDP)"}
         ]
       }
     }
