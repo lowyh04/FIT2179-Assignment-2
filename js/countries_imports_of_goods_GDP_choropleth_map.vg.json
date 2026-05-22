@@ -10,7 +10,7 @@
       "value": 2024,
       "bind": {
         "input": "range",
-        "min": 2020,
+        "min": 2015,
         "max": 2024,
         "step": 1,
         "name": "Select Year: "
@@ -39,10 +39,10 @@
           "lookup": "id",
           "from": {
             "data": {
-              "url": "data/Countries-Imports-of-goods-GDP-(2020-2024).csv"
+              "url": "data/Countries-Imports-of-goods-GDP-(2015-2024).csv"
             },
             "key": "ISO3166-1-numeric",
-            "fields": ["Country Name", "2020", "2021", "2022", "2023","2024"]
+            "fields": ["Country Name", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023","2024"]
           }
         },
         {
