@@ -88,6 +88,9 @@ body {
     color: #4b5563;
     line-height: 1.8;
     margin-bottom: 25px;
+    text-align: justify;
+    max-width: 40ch;
+    text-justify: inter-word;
 }
 
 .two-chart-row {
@@ -113,7 +116,7 @@ body {
 
 .combined-chart-layout {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 30px;
 }
@@ -128,7 +131,8 @@ body {
     flex-direction: column;
     gap: 14px;
     align-items: flex-start;
-    justify-content: top;
+    justify-content: flex-start;
+    padding-top: 240px;
 }
 
 .legend-title {
