@@ -33,7 +33,7 @@
                 "title": "Year",
                 "axis": {"labelAngle": 0, "labelPadding": 10}
                 },
-                "y": {"field": "Value (RM Billion)", "type": "quantitative", "title": "Value (RM Billion)", "axis": {"tickMinStep": 100}},
+                "y": {"field": "Value (RM Billion)", "type": "quantitative", "title": "Value (RM Billion)"},
                 "color": {
                     "field": "Trade Category",
                     "type": "nominal",
