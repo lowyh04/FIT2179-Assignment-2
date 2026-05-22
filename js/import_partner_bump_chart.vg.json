@@ -31,12 +31,7 @@
           "field": "Partner",
           "type": "nominal",
           "title": "Import Partner",
-          "legend": {
-              "orient": "right",
-              "titleFontSize": 14,
-              "labelFontSize": 12,
-              "labelLimit": 120
-            },
+          "legend": null,
           "scale": {
             "domain": ["China", "Singapore", "USA", "Chinese Taipei", "European Union","Japan"],
             "range": ["#6baed6", "#f768a1", "#8c564b", "#1a2b3d", "#228b22", "#C4A482"]
