@@ -110,3 +110,89 @@ body {
 .vega-embed {
     width: 100%;
 }
+
+.combined-chart-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.chart-side {
+    flex: 1;
+}
+
+.shared-legend {
+    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+    justify-content: top;
+}
+
+.legend-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: #374151;
+}
+
+.legend-color {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.china {
+    background: #6baed6;
+}
+
+.singapore {
+    background: #f768a1;
+}
+
+.usa {
+    background: #8c564b;
+}
+
+.taiwan {
+    background: #1a2b3d;
+}
+
+.eu {
+    background: #228b22;
+}
+
+.japan {
+    background: #C4A482;
+}
+
+.small-chart-title {
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+@media (max-width: 1200px) {
+    .combined-chart-layout {
+        flex-direction: column;
+    }
+
+    .shared-legend {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
