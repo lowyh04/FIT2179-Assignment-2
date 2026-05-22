@@ -32,7 +32,14 @@
             "domain": ["Trade Balance", "Trade-to-GDP Ratio"],
             "range": ["#2A9D8F", "#6A4C93"]
           },
-          "legend": {"title": "Indicator"}
+          "legend": {
+            "title": "Indicator",
+            "orient": "top-left",
+            "direction": "horizontal",
+            "titleFontWeight":"bold",
+            "titleFontSize": 12,
+            "labelFontSize": 12
+          }
         },
         "tooltip": [
           {"field": "Year"},
