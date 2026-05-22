@@ -59,8 +59,8 @@
                 "encoding": {
                     "x": {"field": "Year", "type": "ordinal"},
                     "y": {"field": "Value (RM Billion)", "type": "quantitative"},
-                    "x2": {"value": 400},
-                    "y2": {"value": 230}
+                    "x2": {"value": 450},
+                    "y2": {"value": 300}
                 }
             },
             {
@@ -69,13 +69,13 @@
                 "encoding": {
                     "x": {"field": "Year", "type": "ordinal"},
                     "y": {"field": "Value (RM Billion)", "type": "quantitative"},
-                    "x2": {"value": 400},
-                    "y2": {"value": 230}
+                    "x2": {"value": 450},
+                    "y2": {"value": 300}
                 }
             },
             {
                 "transform": [{"filter": "datum.Year == '2023' && datum['Trade Category'] == 'Imports'"}],
-                "mark": {"type": "text", "align": "left", "dx": -240, "dy": 110, "fontSize": 13, "fontWeight": "bold", "color": "#444", "lineBreak": "\n"},
+                "mark": {"type": "text", "align": "left", "dx": -200, "dy": 120, "fontSize": 13, "fontWeight": "bold", "color": "#444", "lineBreak": "\n"},
                 "encoding": {
                     "x": {"field": "Year", "type": "ordinal"},
                     "y": {"field": "Value (RM Billion)", "type": "quantitative"},
