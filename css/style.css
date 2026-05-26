@@ -45,7 +45,7 @@ body {
 
 .chart-title{
     font-family: 'Playfair Display', serif;
-    font-size: 32px;
+    font-size: 28px;
     margin-top: 0;
     margin-bottom: 30px;
     color: #111827;
@@ -65,7 +65,7 @@ body {
 
 .external-title {
     font-family: 'Playfair Display', serif;
-    font-size: 40px;
+    font-size: 36px;
     color: #111827;
     margin-bottom: 15px;
 }
@@ -89,7 +89,7 @@ body {
     line-height: 1.8;
     margin-bottom: 25px;
     text-align: justify;
-    max-width: 40ch;
+    max-width: 45ch;
     text-justify: inter-word;
 }
 
