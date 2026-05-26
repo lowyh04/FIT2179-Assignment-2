@@ -34,8 +34,8 @@
             <hr class="section-divider">
         </section>
 
-        <section class="line-chart-section card-section">
-            <h2 class="line-chart-title chart-title">
+        <section class="card-section">
+            <h2 class="chart-title">
                 Yearly Imports and Exports Value
             </h2>
 
@@ -45,13 +45,13 @@
                 The chart highlights long-term trade performance trends.
             </p>
 
-            <div class="line-chart-container chart-container">
+            <div class="chart-container">
                 <div id="line-chart"></div>
             </div>
         </section>
 
-        <section class="bar-line-section card-section">
-            <h2 class="bar-line-title chart-title">
+        <section class="card-section">
+            <h2 class="chart-title">
                 Malaysia Trade Balance and Trade-To-GDP Ratio (2016 - 2023)
             </h2>
 
@@ -63,7 +63,7 @@
                 due to <strong>COVID-19</strong> and <strong>Russia Ukraine conflict</strong>.
             </p>
 
-            <div class="bar-line-container chart-container">
+            <div class="chart-container">
                 <div id="bar_line_chart"></div>
             </div>
         </section>
@@ -76,7 +76,7 @@
             <hr class="section-divider">
         </section>
 
-        <div class="combined-chart-section card-section">
+        <div class="card-section">
 
             <div class="combined-chart-layout">
 
@@ -138,8 +138,8 @@
         </div>
 
 
-        <section class="stacked-bar-section card-section">
-            <h2 class="stacked-bar-title chart-title">
+        <section class="card-section">
+            <h2 class="chart-title">
                 Malaysia Value of Import (2015 - 2019)
             </h2>
 
@@ -149,13 +149,13 @@
                 Import composition reflected Malaysia’s industrial development needs.
             </p>
 
-            <div class="stacked-bar-container">
+            <div class="chart-container">
                 <div id="stacked-bar"></div>
             </div>
         </section>
 
-        <section class="choropleth-map-section card-section">
-            <h2 class="choropleth-map-title chart-title">
+        <section class="card-section">
+            <h2 class="chart-title">
                 Countries Imports of Goods (% of GDP) from 2020-2025
             </h2>
 
@@ -165,7 +165,7 @@
                 Global trade intensity varied significantly across different regions.
             </p>
 
-            <div class="choropleth-map-container chart-container">
+            <div class="chart-container">
                 <div id="choropleth_map"></div>
             </div>
         </section>
@@ -177,6 +177,23 @@
 
             <hr class="section-divider">
         </section>
+
+        <section class="card-section">
+            <h2 class="chart-title">
+                Malaysia 2024 Export Value
+            </h2>
+
+            <p class="chart-description">
+                Machinery and Technology contributed the largest export share overall.
+                Energy and Resources remained important to Malaysia’s trade economy.
+                Export values varied significantly across different industrial sectors.
+            </p>
+
+            <div class="chart-container">
+                <div id="donut_chart"></div>
+            </div>
+        </section>
+
     </div>
 
     <script type="text/javascript">
@@ -186,6 +203,7 @@
         var bar_line_chart = "js/trade_balance_trade_to_gdp_ratio.vg.json";
         var choropleth_map = "js/countries_imports_of_goods_GDP_choropleth_map.vg.json";
         var multi_line_chart = "js/import_electrical_electronic_products_multi_line.vg.json";
+        var donut_chart = "js/malaysia_2024_export_value_donut_chart.vg.json";
 
         vegaEmbed('#line-chart', line_chart, {actions: false}).then(function(result) {
         }).catch(console.error);
@@ -203,6 +221,9 @@
         }).catch(console.error)
 
         vegaEmbed('#multi_line_chart', multi_line_chart, {actions: false}).then(function(result){
+        }).catch(console.error)
+
+        vegaEmbed('#donut_chart', donut_chart, {actions: false}).then(function(result){
         }).catch(console.error)
 
   </script>
