@@ -61,7 +61,7 @@
                 "encoding": {
                     "x": {"field": "Year", "type": "ordinal"},
                     "y": {"field": "Value (RM Billion)", "type": "quantitative"},
-                    "x2": {"value": 450},
+                    "x2": {"value": 550},
                     "y2": {"value": 300}
                 }
             },
@@ -71,7 +71,7 @@
                 "encoding": {
                     "x": {"field": "Year", "type": "ordinal"},
                     "y": {"field": "Value (RM Billion)", "type": "quantitative"},
-                    "x2": {"value": 450},
+                    "x2": {"value": 550},
                     "y2": {"value": 300}
                 }
             },
