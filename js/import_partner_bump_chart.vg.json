@@ -47,7 +47,7 @@
       }
     },
     {
-      "mark": {"type": "point", "filled": true, "size": 800, "opacity": 1},
+      "mark": {"type": "point", "filled": true, "size": 1200, "opacity": 1},
       "encoding": {
         "x": {"field": "Year", "type": "ordinal"},
         "y": {"field": "Rank", "type": "quantitative"},
