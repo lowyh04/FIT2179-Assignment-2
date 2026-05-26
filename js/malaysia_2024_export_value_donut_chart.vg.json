@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 400,
+  "height": 500,
+
+  "data": {
+    "url": "data/2024-Malaysia-Exports.csv"
+  },
+
+  "transform": [
+    {
+      "joinaggregate": [{"op": "sum", "field": "EXPORT (RM BILLION)", "as": "TotalExport"}]
+    },
+    {
+        "calculate": "'Total export value:\\nRM ' + format(datum.TotalExport, ',.2f') + ' Billion'",
+        "as": "TotalLabel"
+    }
+  ],
+
+  "layer": [
+
+    {
+      "mark": {"type": "arc", "innerRadius": 110, "outerRadius": 180, "stroke": "white","strokeWidth": 2},
+
+      "encoding": {
+        "theta": {"field": "EXPORT (RM BILLION)", "type": "quantitative"},
+        "color": {
+            "field": "SECTOR",
+            "type": "nominal",
+            "title": "Export Sector",
+            "legend": {
+                "orient": "top-left",
+                "direction": "horizontal",
+                "columns": 3,
+                "offset": 10,
+                "padding": 5,
+                "titleFontWeight":"bold",
+                "titleFontSize": 12,
+                "labelFontSize": 12
+            }
+        },
+        "tooltip": [
+          {"field": "SECTOR", "type": "nominal", "title": "Sector"},
+          {"field": "EXPORT (RM BILLION)", "type": "quantitative", "title": "Export Value (RM Billion)", "format": ",.2f"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "center", "baseline": "middle", "fontSize": 22, "fontWeight": "bold", "color": "#111827", "lineBreak": "\n", "dy": -10},
+      "encoding": {"text": {"field": "TotalLabel"}}
+    }
+  ]
+}
