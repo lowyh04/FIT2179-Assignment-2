@@ -178,19 +178,21 @@
             <hr class="section-divider">
         </section>
 
+
+
         <section class="card-section">
             <h2 class="chart-title">
-                Malaysia 2024 Export Value
+                Malaysia Electrical Machinery Export Flows (2024)
             </h2>
 
             <p class="chart-description">
-                Machinery and Technology contributed the largest export share overall.
-                Energy and Resources remained important to Malaysia’s trade economy.
-                Export values varied significantly across different industrial sectors.
+                Export flows show a strong concentration toward East and Southeast Asia.
+                <strong>China</strong> and <strong>Singapore</strong> remain the primary drivers of Malaysia’s export demand.
+                Other advanced economies contribute smaller but stable export shares.
             </p>
 
             <div class="chart-container">
-                <div id="donut_chart"></div>
+                <div id="flow_map"></div>
             </div>
         </section>
 
@@ -204,6 +206,7 @@
         var choropleth_map = "js/countries_imports_of_goods_GDP_choropleth_map.vg.json";
         var multi_line_chart = "js/import_electrical_electronic_products_multi_line.vg.json";
         var donut_chart = "js/malaysia_2024_export_value_donut_chart.vg.json";
+        var flow_map = "js/malaysia_2024_electrical_machinery_top_export_countries.vg.json";
 
         vegaEmbed('#line-chart', line_chart, {actions: false}).then(function(result) {
         }).catch(console.error);
@@ -223,7 +226,7 @@
         vegaEmbed('#multi_line_chart', multi_line_chart, {actions: false}).then(function(result){
         }).catch(console.error)
 
-        vegaEmbed('#donut_chart', donut_chart, {actions: false}).then(function(result){
+        vegaEmbed('#flow_map', flow_map, {actions: false}).then(function(result){
         }).catch(console.error)
 
   </script>
