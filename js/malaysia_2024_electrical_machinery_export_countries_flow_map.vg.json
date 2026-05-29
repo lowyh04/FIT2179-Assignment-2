@@ -1,0 +1,52 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A origin-destination flow map showing the export of electrical machinery products from Malaysia to other Asia countries in 2024",
+  "width": 950,
+  "height": 600,
+  "projection": {"type": "equalEarth", "center": [105, 20], "scale": 700},
+  "layer": [
+    {
+      "data": {
+        "url": "https://vega.github.io/vega-datasets/data/world-110m.json",
+        "format": {"type": "topojson", "feature": "countries"}
+      },
+      "mark": {"type": "geoshape", "fill": "#ECECEC", "stroke": "white"}
+    },
+    {
+      "data": {"url": "data/Malaysia-electrical-machinery-export-top-country-2024.csv"},
+      "mark": {"type": "rule", "color": "#2563EB", "opacity": 0.8, "strokeWidth": 2},
+      "encoding": {
+        "longitude": {"field": "origin_longitude", "type": "quantitative"},
+        "latitude": {"field": "origin_latitude", "type": "quantitative"},
+        "longitude2": {"field": "longitude", "type": "quantitative"},
+        "latitude2": {"field": "latitude", "type": "quantitative"},
+        "size": {"field": "Export value (USD Billion)", "type": "quantitative", "title": "Export Value (USD Billion)", "scale": {"domain": [0, 30], "range": [1, 9]}, "legend": null},
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Export value (USD Billion)", "type": "quantitative", "format": ".2f"}
+        ]
+      }
+    },
+    {
+      "data": {"url": "data/Malaysia-electrical-machinery-export-top-country-2024.csv"},
+      "mark": {"type": "circle", "color": "#DC2626", "size": 120},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude",  "type": "quantitative"},
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Export value (USD Billion)", "type": "quantitative","format": ".2f"}
+        ]
+      }
+    },
+    {
+      "data": {"values": [{"Country": "Malaysia",  "latitude": 4.2105, "longitude": 101.9758}]},
+      "mark": {"type": "circle", "color": "#111827", "size": 200},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "tooltip": [{"field": "Country"}]
+      }
+    }
+  ]
+}

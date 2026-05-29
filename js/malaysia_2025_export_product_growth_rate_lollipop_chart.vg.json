@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A lollipop chart showing the growth rate of each Malaysia export product in 2025",
-  "width": 900,
-  "height": 500,
+  "width": 950,
+  "height": 600,
   "data": {"url": "data/Malaysia-Export-Product-Growth-Rate-2025.csv"},
   "transform": [
     {

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 950,
+  "height": 600,
+  "data": {"url": "data/malaysia-gdp-trade-to-gdp-usd-exchange-rate-(1990-2023).csv"},
+  "params": [{"name": "YearSelector", "value": 1990, "bind": {"input": "range", "min": 1990, "max": 2023, "step": 1, "name": "Year: "}}],
+  "transform": [{"filter": "datum.Year <= YearSelector"}],
+  "mark": {"type": "circle", "opacity": 0.5, "stroke": "black", "strokeWidth": 1},
+  "encoding": {
+    "x": {"field": "ExchangeRate", "type": "quantitative", "title": "USD Exchange Rate"},
+    "y": {"field": "TradeToGDP", "type": "quantitative", "title": "Trade-to-GDP Ratio (%)"},
+    "size": {"field": "GDP", "type": "quantitative", "title": "GDP (USD Billion)", "scale": {"domain": [0, 450], "range": [100, 3000]}},
+    "tooltip": [{"field": "Year"}, {"field": "GDP"}, {"field": "ExchangeRate"}, {"field": "TradeToGDP"}]
+  }
+}

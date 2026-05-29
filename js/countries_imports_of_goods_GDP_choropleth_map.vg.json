@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A choropleth map showing the Malaysia countries import of good (% of GDP) from year 2020 to 2024",
-  "width": 900,
-  "height": 500,
+  "width": 950,
+  "height": 600,
   "projection": {"type": "equalEarth"},
   "params": [
     {
