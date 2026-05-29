@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A lollipop chart showing the growth rate of each Malaysia export product in 2025",
+  "width": 900,
+  "height": 500,
+  "data": {"url": "data/Malaysia-Export-Product-Growth-Rate-2025.csv"},
+  "transform": [
+    {
+      "calculate": "indexof(datum.Product, ' & ') > -1 ? [split(datum.Product, ' & ')[0] + ' &', split(datum.Product, ' & ')[1]] : length(split(datum.Product, ' ')) == 2 ? split(datum.Product, ' ') : [datum.Product]",
+      "as": "WrappedProduct"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "WrappedProduct",
+      "type": "nominal",
+      "sort": {"field": "GrowthRate", "order": "descending"},
+      "axis": {"title": "Product", "labelFontSize": 12, "labelAngle": 0,"labelPadding": 10}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "rule","color": "#9CA3AF", "strokeWidth": 2},
+      "encoding": {
+        "y": {"field": "GrowthRate", "type": "quantitative"},
+        "y2": {"datum": 0}
+      }
+    },
+    {
+      "mark": {"type": "circle", "size": 250},
+      "encoding": {
+        "y": {"field": "GrowthRate", "type": "quantitative", "title": "Growth Rate (%)"},
+        "color": {
+          "condition": {"test": "datum.GrowthRate < 0", "value": "#EF4444"},
+          "value": "#FFCB67"
+        },
+        "tooltip": [
+          {"field": "Product", "type": "nominal"},
+          {"field": "GrowthRate", "type": "quantitative", "title": "Growth Rate (%)", "format": ".2f"}
+        ]
+      }
+    }
+  ],
+  "config": {"view": {"stroke": null},
+    "axis": {"grid": true, "labelFontSize": 12, "titleFontSize": 13}
+  }
+}
