@@ -52,7 +52,7 @@
 
         <section class="card-section">
             <h2 class="chart-title">
-                Malaysia Trade Balance and Trade-To-GDP Ratio (2016 - 2023)
+                Malaysia Trade-to-GDP Ratio, GDP and Exchange Rate Trends (1990–2023)
             </h2>
 
             <p class="chart-description">
@@ -64,7 +64,7 @@
             </p>
 
             <div class="chart-container">
-                <div id="bar_line_chart"></div>
+                <div id="bubble_chart"></div>
             </div>
         </section>
 
@@ -289,12 +289,12 @@
         var waterfall_chart = "js/yearly_trade_balance_difference_waterfall_chart.vg.json"
         var bump_chart = "js/import_partner_bump_chart.vg.json";
         var stacked_bar = "js/value_of_import_stacked_bar.vg.json";
-        var bar_line_chart = "js/trade_balance_trade_to_gdp_ratio.vg.json";
+        var bubble_chart = "js/trade_balance_usd_exchange_rate_trade_to_gdp_ratio_bubble_chart.vg.json";
         var choropleth_map = "js/countries_imports_of_goods_GDP_choropleth_map.vg.json";
         var multi_line_chart = "js/import_electrical_electronic_products_multi_line.vg.json";
         var donut_chart = "js/malaysia_2024_export_value_donut_chart.vg.json";
         var stream_graph = "js/malaysia_2024_epxort_products_streamgraph.vg.json";
-        var flow_map = "js/malaysia_2024_electrical_machinery_top_export_countries.vg.json";
+        var flow_map = "js/malaysia_2024_electrical_machinery_export_countries_flow_map.vg.json";
         var lollipop_chart = "js/malaysia_2025_export_product_growth_rate_lollipop_chart.vg.json";
 
         vegaEmbed('#line-chart', line_chart, {actions: false}).then(function(result) {
@@ -309,7 +309,7 @@
         vegaEmbed('#stacked-bar', stacked_bar, {actions: false}).then(function(result){
         }).catch(console.error);
 
-        vegaEmbed('#bar_line_chart', bar_line_chart, {actions: false}).then(function(result){
+        vegaEmbed('#bubble_chart', bubble_chart, {actions: false}).then(function(result){
         }).catch(console.error)
 
         vegaEmbed('#choropleth_map', choropleth_map, {actions: false}).then(function(result){
