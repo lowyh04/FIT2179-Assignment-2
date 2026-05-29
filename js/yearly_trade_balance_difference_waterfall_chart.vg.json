@@ -1,0 +1,119 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 950,
+  "height": 600,
+
+  "data": {
+    "url": "data/yearly-trade-balance-difference.csv"
+  },
+
+  "transform": [
+    {"window": [{"op": "sum", "field": "Amount", "as": "sum"}]},
+    {"window": [{"op": "lead", "field": "Label", "as": "lead"}]},
+    {
+      "calculate": "datum.lead === null ? datum.Label : datum.lead",
+      "as": "lead"
+    },
+    {
+      "calculate": "datum.Label === 'End' ? 0 : datum.sum - datum.Amount",
+      "as": "previous_sum"
+    },
+    {
+      "calculate": "datum.Label === 'End' ? datum.sum : datum.Amount",
+      "as": "amount"
+    },
+    {
+      "calculate": "(datum.Label !== 'Begin' && datum.Label !== 'End' && datum.Amount > 0 ? '+' : '') + datum.amount",
+      "as": "text_amount"
+    },
+    {"calculate": "(datum.sum + datum.previous_sum) / 2", "as": "center"}
+  ],
+
+  "encoding": {
+    "x": {
+      "field": "Label",
+      "type": "ordinal",
+      "sort": null,
+      "axis": {
+        "labelAngle": 0,
+        "title": "Year"
+      }
+    }
+  },
+
+  "layer": [
+
+    {
+      "mark": {
+        "type": "bar",
+        "size": 45
+      },
+
+      "encoding": {
+        "y": {
+          "field": "previous_sum",
+          "type": "quantitative",
+          "title": "Trade Balance (RM Billion)"
+        },
+
+        "y2": {
+          "field": "sum"
+        },
+
+        "color": {
+          "condition": [
+            {
+              "test": "datum.Label === 'Begin' || datum.Label === 'End'",
+              "value": "#f7e0b6"
+            },
+            {"test": "datum.sum < datum.previous_sum", "value": "#FF0000"}
+          ],
+          "value": "#00B0CD"
+        }
+      }
+    },
+    {
+        "mark": {
+            "type": "rule",
+            "color": "#404040",
+            "opacity": 1,
+            "strokeWidth": 2,
+            "xOffset": -22.5,
+            "x2Offset": 22.5
+        },
+        "encoding": {
+            "x2": {"field": "lead"},
+            "y": {"field": "sum", "type": "quantitative"}
+        }
+    },
+
+    {
+      "mark": {
+        "type": "text", "dy": {"expr": "datum.Amount >= 0 ? -4 : 4"},
+        "baseline": {"expr": "datum.Amount >= 0 ? 'bottom' : 'top'"}
+    },
+      "encoding": {
+        "y": {"field": "sum", "type": "quantitative"},
+        "text": {"field": "sum", "type": "nominal"}
+      }
+    },
+        {
+            "mark": {"type": "text", "fontWeight": "bold", "baseline": "middle"},
+            "encoding": {
+                "y": {"field": "center", "type": "quantitative"},
+                "text": {"field": "text_amount", "type": "nominal"},
+                "color": {
+                    "condition": [
+                        {
+                            "test": "datum.Label === 'Begin' || datum.Label === 'End'",
+                            "value": "#725a30"
+                        }
+                    ],
+                    "value": "white"
+                }
+            }
+        }
+  ],
+  "config": {"text": {"fontWeight": "bold", "color": "#404040"}}
+}

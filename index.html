@@ -68,6 +68,20 @@
             </div>
         </section>
 
+        <section class="card-section">
+            <h2 class="chart-title">
+                Malaysia Yearly Trade Balance Difference (2015 - 2025)
+            </h2>
+
+            <p class="chart-description">
+                
+            </p>
+
+            <div class="chart-container">
+                <div id="waterfall_chart"></div>
+            </div>
+        </section>
+
         <section class="external-section">
             <h2 class="external-title">
                 2. Malaysia Import Analysis
@@ -272,6 +286,7 @@
 
     <script type="text/javascript">
         var line_chart = "js/yearly_import_and_export_line_chart.vg.json";
+        var waterfall_chart = "js/yearly_trade_balance_difference_waterfall_chart.vg.json"
         var bump_chart = "js/import_partner_bump_chart.vg.json";
         var stacked_bar = "js/value_of_import_stacked_bar.vg.json";
         var bar_line_chart = "js/trade_balance_trade_to_gdp_ratio.vg.json";
@@ -283,6 +298,9 @@
         var lollipop_chart = "js/malaysia_2025_export_product_growth_rate_lollipop_chart.vg.json";
 
         vegaEmbed('#line-chart', line_chart, {actions: false}).then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#waterfall_chart', waterfall_chart, {actions: false}).then(function(result) {
         }).catch(console.error);
 
         vegaEmbed('#bump-chart', bump_chart, {actions: false}).then(function(result){
