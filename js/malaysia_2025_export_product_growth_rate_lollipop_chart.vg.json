@@ -31,8 +31,8 @@
       "encoding": {
         "y": {"field": "GrowthRate", "type": "quantitative", "title": "Growth Rate (%)"},
         "color": {
-          "condition": {"test": "datum.GrowthRate < 0", "value": "#EF4444"},
-          "value": "#FFCB67"
+          "condition": {"test": "datum.GrowthRate < 0", "value": "#FF0000"},
+          "value": "#00B0CD"
         },
         "tooltip": [
           {"field": "Product", "type": "nominal"},
