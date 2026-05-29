@@ -181,6 +181,26 @@ body {
     background: #C4A482;
 }
 
+.agriculture{
+    background: #8FBC8F;
+}
+
+.chemical{
+    background: #9370DB;
+}
+
+.energy{
+    background: #FFA500
+}
+
+.machinery{
+    background: #87CEEB
+}
+
+.metals{
+    background: #9D9D9D
+}
+
 .small-chart-title {
     text-align: left;
     font-family: 'Playfair Display', serif;
