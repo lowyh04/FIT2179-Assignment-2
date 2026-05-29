@@ -3,7 +3,7 @@
   "description": "A origin-destination flow map showing the export of electrical machinery products from Malaysia to other Asia countries in 2024",
   "width": 950,
   "height": 600,
-  "projection": {"type": "equalEarth", "center": [105, 20], "scale": 700},
+  "projection": {"type": "equalEarth", "center": [105, 20], "scale": 0},
   "layer": [
     {
       "data": {

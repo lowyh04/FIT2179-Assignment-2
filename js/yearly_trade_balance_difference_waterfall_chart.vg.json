@@ -1,13 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
+  "description": "A waterfall chart showing A bubble chart showing the relationship between Malaysia’s trade-to-GDP ratio, USD exchange rate and GDP from 1990 to 2023.",
   "width": 950,
   "height": 600,
-
   "data": {
     "url": "data/yearly-trade-balance-difference.csv"
   },
-
   "transform": [
     {"window": [{"op": "sum", "field": "Amount", "as": "sum"}]},
     {"window": [{"op": "lead", "field": "Label", "as": "lead"}]},
@@ -30,37 +28,14 @@
     {"calculate": "(datum.sum + datum.previous_sum) / 2", "as": "center"}
   ],
 
-  "encoding": {
-    "x": {
-      "field": "Label",
-      "type": "ordinal",
-      "sort": null,
-      "axis": {
-        "labelAngle": 0,
-        "title": "Year"
-      }
-    }
-  },
+  "encoding": {"x": {"field": "Label", "type": "ordinal", "sort": null, "axis": {"labelAngle": 0, "title": "Year"}}},
 
   "layer": [
-
     {
-      "mark": {
-        "type": "bar",
-        "size": 45
-      },
-
+      "mark": {"type": "bar", "size": 45},
       "encoding": {
-        "y": {
-          "field": "previous_sum",
-          "type": "quantitative",
-          "title": "Trade Balance (RM Billion)"
-        },
-
-        "y2": {
-          "field": "sum"
-        },
-
+        "y": {"field": "previous_sum", "type": "quantitative", "title": "Trade Balance (RM Billion)"},
+        "y2": {"field": "sum"},
         "color": {
           "condition": [
             {
@@ -74,18 +49,11 @@
       }
     },
     {
-        "mark": {
-            "type": "rule",
-            "color": "#404040",
-            "opacity": 1,
-            "strokeWidth": 2,
-            "xOffset": -22.5,
-            "x2Offset": 22.5
-        },
-        "encoding": {
-            "x2": {"field": "lead"},
-            "y": {"field": "sum", "type": "quantitative"}
-        }
+      "mark": {"type": "rule", "color": "#404040", "opacity": 1, "strokeWidth": 2, "xOffset": -22.5, "x2Offset": 22.5},
+      "encoding": {
+          "x2": {"field": "lead"},
+          "y": {"field": "sum", "type": "quantitative"}
+      }
     },
 
     {
@@ -98,22 +66,22 @@
         "text": {"field": "sum", "type": "nominal"}
       }
     },
-        {
-            "mark": {"type": "text", "fontWeight": "bold", "baseline": "middle"},
-            "encoding": {
-                "y": {"field": "center", "type": "quantitative"},
-                "text": {"field": "text_amount", "type": "nominal"},
-                "color": {
-                    "condition": [
-                        {
-                            "test": "datum.Label === 'Begin' || datum.Label === 'End'",
-                            "value": "#725a30"
-                        }
-                    ],
-                    "value": "white"
-                }
-            }
-        }
+      {
+          "mark": {"type": "text", "fontWeight": "bold", "baseline": "middle"},
+          "encoding": {
+              "y": {"field": "center", "type": "quantitative"},
+              "text": {"field": "text_amount", "type": "nominal"},
+              "color": {
+                  "condition": [
+                      {
+                          "test": "datum.Label === 'Begin' || datum.Label === 'End'",
+                          "value": "#725a30"
+                      }
+                  ],
+                  "value": "white"
+              }
+          }
+      }
   ],
   "config": {"text": {"fontWeight": "bold", "color": "#404040"}}
 }

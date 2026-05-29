@@ -1,13 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
+  "description": "A donut chart showing the contribution of each sector to Malaysia's total export.",
   "width": 400,
   "height": 400,
-
   "data": {
     "url": "data/2024-Malaysia-Exports.csv"
   },
-
   "transform": [
     {
       "joinaggregate": [{"op": "sum", "field": "EXPORT (RM BILLION)", "as": "TotalExport"}]
@@ -17,12 +15,9 @@
         "as": "TotalLabel"
     }
   ],
-
   "layer": [
-
     {
       "mark": {"type": "arc", "innerRadius": 110, "outerRadius": 180, "stroke": "white","strokeWidth": 2},
-
       "encoding": {
         "theta": {"field": "EXPORT (RM BILLION)", "type": "quantitative"},
         "color": {

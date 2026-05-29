@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Stacked bar chart of imports by sector over time.",
+  "description": "A stacked bar chart of imports by sector over time.",
   "width": 950,
   "height": 600,
   "data": {

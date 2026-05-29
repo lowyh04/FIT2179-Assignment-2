@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A bubble chart showing the relationship between Malaysia’s trade-to-GDP ratio, USD exchange rate and GDP from 1990 to 2023.",
   "width": 950,
   "height": 600,
   "data": {"url": "data/malaysia-gdp-trade-to-gdp-usd-exchange-rate-(1990-2023).csv"},

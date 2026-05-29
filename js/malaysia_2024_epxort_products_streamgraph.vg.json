@@ -1,36 +1,15 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
+  "description": "A stream graph showing how Malaysia’s export sectors changed over time, highlighting the dominance of Machinery & Technology and shifts in sectoral export contributions from 2015 to 2019.",
   "width": 400,
   "height": 400,
+  "data": {"url": "data/Malaysia-Export-Sector-2015-2019.csv"},
 
-  "data": {
-    "url": "data/Malaysia-Export-Sector-2015-2019.csv"
-  },
-
-  "mark": {
-    "type": "area",
-    "opacity": 0.9
-  },
+  "mark": {"type": "area","opacity": 0.9},
 
   "encoding": {
-
-    "x": {
-      "field": "YEAR",
-      "type": "ordinal",
-      "title": "Year",
-      "axis": {
-        "labelAngle": 0
-      }
-    },
-
-    "y": {
-      "field": "EXPORT (RM Billion)",
-      "type": "quantitative",
-      "stack": "center",
-      "title": "Export Value (RM Billion)"
-    },
-
+    "x": {"field": "YEAR", "type": "ordinal", "title": "Year", "axis": {"labelAngle": 0}},
+    "y": {"field": "EXPORT (RM Billion)", "type": "quantitative", "stack": "center", "title": "Export Value (RM Billion)"},
     "color": {
       "field": "SECTOR",
       "type": "nominal",
@@ -38,42 +17,16 @@
       "legend": null,
       "scale": { "range": ["#FF7F7F", "#9370DB", "#FFA500", "#87CEEB", "#9D9D9D"]}
     },
-
     "tooltip": [
-      {
-        "field": "YEAR",
-        "type": "ordinal",
-        "title": "Year"
-      },
-      {
-        "field": "SECTOR",
-        "type": "nominal",
-        "title": "Sector"
-      },
-      {
-        "field": "EXPORT (RM Billion)",
-        "type": "quantitative",
-        "title": "Export Value (RM Billion)",
-        "format": ".3f"
-      }
+      {"field": "YEAR", "type": "ordinal", "title": "Year"},
+      {"field": "SECTOR", "type": "nominal", "title": "Sector"},
+      {"field": "EXPORT (RM Billion)", "type": "quantitative", "title": "Export Value (RM Billion)","format": ".3f"}
     ]
   },
 
   "config": {
-
-    "view": {
-      "stroke": null
-    },
-
-    "axis": {
-      "grid": false,
-      "labelFontSize": 12,
-      "titleFontSize": 13
-    },
-
-    "legend": {
-      "titleFontSize": 13,
-      "labelFontSize": 12
-    }
+    "view": {"stroke": null},
+    "axis": {"grid": false, "labelFontSize": 12, "titleFontSize": 13},
+    "legend": {"titleFontSize": 13, "labelFontSize": 12}
   }
 }
