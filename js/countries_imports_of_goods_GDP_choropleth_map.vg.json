@@ -65,7 +65,7 @@
             "type": "quantitative",
             "title": "Imports (% GDP)",
             "scale": {
-              "scheme": "goldorange"
+              "scheme": "browns"
             }
           },
           "value": "#d3d3d3"

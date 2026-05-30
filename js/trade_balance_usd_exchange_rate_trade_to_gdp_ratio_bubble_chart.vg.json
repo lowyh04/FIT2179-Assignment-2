@@ -8,7 +8,7 @@
   "transform": [{"filter": "datum.Year <= YearSelector"}],
   "mark": {"type": "circle", "opacity": 0.5, "stroke": "black", "strokeWidth": 1},
   "encoding": {
-    "x": {"field": "ExchangeRate", "type": "quantitative", "title": "USD Exchange Rate"},
+    "x": {"field": "ExchangeRate", "type": "quantitative", "title": "MYR to USD Exchange Rate"},
     "y": {"field": "TradeToGDP", "type": "quantitative", "title": "Trade-to-GDP Ratio (%)"},
     "size": {"field": "GDP", "type": "quantitative", "title": "GDP (USD Billion)", "scale": {"domain": [0, 450], "range": [100, 3000]}},
     "tooltip": [{"field": "Year"}, {"field": "GDP"}, {"field": "ExchangeRate"}, {"field": "TradeToGDP"}]

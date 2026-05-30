@@ -14,7 +14,7 @@
     },
     {
       "data": {"url": "data/Malaysia-electrical-machinery-export-top-country-2024.csv"},
-      "mark": {"type": "rule", "color": "#2563EB", "opacity": 0.8, "strokeWidth": 2},
+      "mark": {"type": "rule", "color": "darkgray", "opacity": 0.8, "strokeWidth": 2},
       "encoding": {
         "longitude": {"field": "origin_longitude", "type": "quantitative"},
         "latitude": {"field": "origin_latitude", "type": "quantitative"},
@@ -29,10 +29,18 @@
     },
     {
       "data": {"url": "data/Malaysia-electrical-machinery-export-top-country-2024.csv"},
-      "mark": {"type": "circle", "color": "#DC2626", "size": 120},
+      "mark": {"type": "circle", "size": 120},
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude",  "type": "quantitative"},
+        "color": {
+          "field": "Country",
+          "type": "nominal",
+          "scale": {
+            "domain": ["China", "Singapore", "Japan", "South Korea", "India"],
+            "range": ["#6baed6", "#f768a1", "#C4A482", "darkgreen", "darkmagenta"]
+          }
+        },
         "tooltip": [
           {"field": "Country", "type": "nominal"},
           {"field": "Export value (USD Billion)", "type": "quantitative","format": ".2f"}
