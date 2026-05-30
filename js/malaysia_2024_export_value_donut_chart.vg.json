@@ -24,7 +24,7 @@
             "field": "SECTOR",
             "type": "nominal",
             "title": "Export Sector",
-            "scale": { "range": ["#FF7F7F", "#9370DB", "#FFA500", "#87CEEB", "#9D9D9D"]},
+            "scale": { "range": ["#8FBC8F", "#9370DB", "#FFA500", "#87CEEB", "#9D9D9D"]},
             "legend": null
         },
         "tooltip": [
